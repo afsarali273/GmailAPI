@@ -31,6 +31,29 @@ import com.google.api.services.gmail.model.Message;
 
 public class GmailAPI {
 
+	
+	/*
+	1.Get code : 
+https://accounts.google.com/o/oauth2/v2/auth?
+ scope=https://mail.google.com&
+ access_type=offline&
+ redirect_uri=http://localhost&
+ response_type=code&
+ client_id=[Client ID]
+
+2. Get access_token and refresh_token
+ curl \
+--request POST \
+--data "code=[Authentcation code from authorization link]&client_id=[Application Client Id]&client_secret=[Application Client Secret]&redirect_uri=http://localhost&grant_type=authorization_code" \
+https://accounts.google.com/o/oauth2/token
+
+3.Get new access_token using refresh_token
+curl \
+--request POST \
+--data "client_id=[your_client_id]&client_secret=[your_client_secret]&refresh_token=[refresh_token]&grant_type=refresh_token" \
+https://accounts.google.com/o/oauth2/token
+	
+*/
 	private static final String APPLICATION_NAME = "Gmail API Java Quickstart";
 	private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
 	private static final String user = "me";
