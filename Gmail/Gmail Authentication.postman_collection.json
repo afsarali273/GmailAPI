@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "7dede2e7-73e7-4e85-9a9e-7801d7db137f",
+		"name": "Gmail Authentication",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1.Get Code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://accounts.google.com/o/oauth2/v2/auth?scope=https://mail.google.com&access_type=offline&redirect_uri=http://localhost&response_type=code&client_id=229892933024-691k9oq9n674schvp8rnle4gjmk4rvcl.apps.googleusercontent.com",
+					"protocol": "https",
+					"host": [
+						"accounts",
+						"google",
+						"com"
+					],
+					"path": [
+						"o",
+						"oauth2",
+						"v2",
+						"auth"
+					],
+					"query": [
+						{
+							"key": "scope",
+							"value": "https://mail.google.com"
+						},
+						{
+							"key": "access_type",
+							"value": "offline"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost"
+						},
+						{
+							"key": "response_type",
+							"value": "code"
+						},
+						{
+							"key": "client_id",
+							"value": "229892933024-691k9oq9n674schvp8rnle4gjmk4rvcl.apps.googleusercontent.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.Get  Refresh Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "code",
+							"value": "4/0AX4XfWjpmDSfPfIcG9tAysWxDe0v1JHTnmII_nAtrtd12N46aDw2nqqIITnyXwUGTcESmg",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "229892933024-691k9oq9n674schvp8rnle4gjmk4rvcl.apps.googleusercontent.com",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "o6WOZ0kZrTLndaHAdU0Jqvw8",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://accounts.google.com/o/oauth2/token",
+					"protocol": "https",
+					"host": [
+						"accounts",
+						"google",
+						"com"
+					],
+					"path": [
+						"o",
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.Get AccessToken",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "229892933024-691k9oq9n674schvp8rnle4gjmk4rvcl.apps.googleusercontent.com",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "o6WOZ0kZrTLndaHAdU0Jqvw8",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "1//0gJuJBXeCcECsCgYIARAAGBASNwF-L9Irmqvg2g-Y0SvIWxyPvlQDAFO01cDUjjpVnUye3E07Mxx_7800KBvrB1_JAORdPpb0_Iw",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://accounts.google.com/o/oauth2/token",
+					"protocol": "https",
+					"host": [
+						"accounts",
+						"google",
+						"com"
+					],
+					"path": [
+						"o",
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
