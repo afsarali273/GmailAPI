@@ -1,0 +1,22 @@
+pm.sendRequest({
+    url: "https://accounts.google.com/o/oauth2/token",
+    method: "POST",
+    header: {
+        "Accept": "application/json",
+        "Content-Type": "application/x-www-form-urlencoded"
+    },
+    body: {
+        mode: 'urlencoded',
+        urlencoded:[
+            {key:"client_id", value: "97362042616-gi00enukqpufukbjlfrpf2miirfio244.apps.googleusercontent.com" , disabled: false},
+            {key:"client_secret", value: "JUk6I4zxzfu-GS0lAvltJAhS" , disabled: false},
+            {key:"refresh_token", value: "1//0gzoMuVqyi1QlCgYIARAAGBASNwF-L9Ir4o82p0Tom1emMG9eK0hXaTTCNkxFYatcupth-iwHVuf7o-I28vRumMVN7DivbMz6Pms" , disabled: false},
+            {key:"grant_type", value: "refresh_token" , disabled: false}
+
+        ]
+
+    }
+}, function (err, res) {
+    pm.environment.set("accessToken", res.json().access_token);
+   console.log("Token : "+res.json().access_token);
+});
